@@ -1,16 +1,9 @@
-FROM ubuntu:14.04
+FROM brenninc/r-base
 
-MAINTAINER Christian Brenninkmeijer <Christian.Brenninkmeijer@manchester.ac.uk>
-
-# See https://cran.r-project.org/bin/linux/ubuntu/README
-RUN echo "deb http://mirrors.ebi.ac.uk/CRAN/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
-
-#Install curl, R, and R packages
-RUN apt-get update  && apt-get install -y --force-yes \
-    curl \
+#Install R packages
+RUN apt-get install -y --force-yes \
     libcairo2-dev \
     libxt-dev \
-    r-base \
     r-cran-colorspace \
     r-cran-dichromat \
     r-cran-digest \
@@ -62,10 +55,6 @@ RUN curl http://pklab.med.harvard.edu/scde/scde_1.2.1.tar.gz > scde_1.2.tar.gz &
     R CMD INSTALL scde_1.2.tar.gz && \
     rm scde_1.2.tar.gz
     
-COPY r_wrapper.sh r_wrapper.sh
-
-ENTRYPOINT ["./r_wrapper.sh"]
-
 
 
 
