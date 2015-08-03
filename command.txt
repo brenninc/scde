@@ -1,0 +1,6 @@
+These are example runs that work on my machine
+Replace //home/christian/Dropbox/Manchester/docker/scde/scripts with the folder you have your scripts in
+This does not need to be in a subdirectory of scde or docker!
+
+docker run --rm -v /home/christian/Dropbox/Manchester/docker/scde/scripts:/scripts brenninc/scde /scripts/scde_example.R
+
