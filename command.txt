@@ -2,5 +2,14 @@ These are example runs that work on my machine
 Replace //home/christian/Dropbox/Manchester/docker/scde/scripts with the folder you have your scripts in
 This does not need to be in a subdirectory of scde or docker!
 
-docker run --rm -v /home/christian/Dropbox/Manchester/docker/scde/scripts:/scripts brenninc/scde /scripts/scde_example.R
+docker run --rm -v /home/christian/Dropbox/Manchester/docker/scde/scripts:/scripts -v /home/christian/Dropbox/Manchester/docker/scde/data:/data -it --entrypoint="bin/bash" brenninc/scde
+
+docker run --rm -v /home/christian/Dropbox/Manchester/docker/scde/scripts:/scripts -v /home/christian/Dropbox/Manchester/docker/scde/data:/data brenninc/scde /scripts/test.R
+
+docker run --rm -v /home/christian/Dropbox/Manchester/docker/scde/scripts:/scripts -v /home/christian/Dropbox/Manchester/docker/scde/data:/data brenninc/scde /scripts/test.R /data/es.mef.small.csv /data/o.ifm.csv /data/results.txt
+ 
+docker run --rm -v /home/christian/Dropbox/Manchester/docker/scde/scripts:/scripts -v /home/christian/Dropbox/Manchester/docker/scde/data:/data brenninc/scde /scripts/error_model.R /data/es.mef.tiny.csv /data/my_o.ifm.tiny.csv 
+
+docker run --rm -v /home/christian/Dropbox/Manchester/docker/scde/scripts:/scripts -v /home/christian/Dropbox/Manchester/docker/scde/data:/data brenninc/scde /scripts/differential_expression.R /data/es.mef.tiny.csv /data/o.ifm.tiny.csv /data/ed_results.tiny.csv /data/ed_graph.eps 
+
 
